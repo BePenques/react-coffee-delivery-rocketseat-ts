@@ -1,7 +1,9 @@
 import { HeaderContainer } from './styles'
-import { ShoppingCart, MapPin } from 'phosphor-react'
+import { MapPin } from 'phosphor-react'
 import Logo from '../../assets/Logo.svg'
 import { NavLink } from 'react-router-dom'
+import { CartButton } from '../../pages/Home/components/CartButton'
+// import { CartButton } from '../../components/CartButton'
 
 export function Header() {
   return (
@@ -17,9 +19,7 @@ export function Header() {
           </div>
         </a>
         <NavLink to="/checkout" title="Checkout">
-          <button>
-            <ShoppingCart size={22} weight="fill" color="#C47F17" />
-          </button>
+          <CartButton color={'darkYellow'} bgcolor={'yellow'} />
         </NavLink>
       </nav>
     </HeaderContainer>

@@ -14,18 +14,6 @@ export const HeaderContainer = styled.header`
     gap: 0.75rem;
   }
 
-  a button {
-    width: 2.37rem;
-    height: 2.37rem;
-    background-color: ${(props) => props.theme['yellow-100']};
-    border: transparent;
-    border-radius: 6px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-  }
-
   a div {
     display: flex;
     background-color: ${(props) => props.theme['purple-100']};
