@@ -24,9 +24,10 @@ export const Subtitle = styled.p`
 export const BannerContainer = styled.section`
   display: flex;
   height: 544px;
-  border: solid 2px red;
   align-items: start;
   justify-content: space-between;
+  background-image: url(/src/assets/Background.svg);
+  width: 100%;
 
   img {
     max-width: 476px;
@@ -36,7 +37,7 @@ export const BannerContainer = styled.section`
 
 export const MenuContainer = styled.div`
   height: 1645px;
-  border: solid 2px green;
+
   p {
     color: ${(props) => props.theme['gray-600']};
     font-family: 'Baloo 2';
@@ -47,10 +48,13 @@ export const MenuContainer = styled.div`
 `
 
 export const MenuList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
   margin-top: 54px;
+  gap: 32px;
 `
 export const CoffeeCard = styled.div`
   width: 256px;
   height: 310px;
-  border: solid 2px green;
 `
