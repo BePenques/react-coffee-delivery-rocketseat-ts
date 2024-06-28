@@ -3,13 +3,13 @@ import styled from 'styled-components'
 export const BannerTagContainer = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 40px;
-  margin-top: 66px;
+  gap: 2.5rem;
+  margin-top: 4.12rem;
 
   aside {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 1.25rem;
   }
 `
 
@@ -20,10 +20,10 @@ interface Props {
 export const GroupTag = styled.div<Props>`
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 0.75rem;
 
   span {
-    padding: 8px;
+    padding: 0.5rem;
     background: ${(props) => props.theme[props.colortag]};
     border-radius: 100%;
     align-items: center;

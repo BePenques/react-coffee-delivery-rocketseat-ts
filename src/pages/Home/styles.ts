@@ -6,11 +6,11 @@ export const HomeContainer = styled.main`
 `
 
 export const BoxTitlesTag = styled.div`
-  max-width: 588px;
-  margin-top: 94px;
+  max-width: 36.75rem;
+  margin-top: 5.87rem;
 `
 export const Title = styled.h1`
-  font-size: 48px;
+  font-size: 3rem;
   font-family: 'Baloo 2';
   line-height: 130%;
   color: ${(props) => props.theme['gray-700']};
@@ -23,20 +23,20 @@ export const Subtitle = styled.p`
 
 export const BannerContainer = styled.section`
   display: flex;
-  height: 544px;
+  height: 34rem;
   align-items: start;
   justify-content: space-between;
   background-image: url(/src/assets/Background.svg);
   width: 100%;
 
   img {
-    max-width: 476px;
-    margin-top: 94px;
+    max-width: 29.75rem;
+    margin-top: 5.87rem;
   }
 `
 
 export const MenuContainer = styled.div`
-  height: 1645px;
+  height: 102.81rem;
 
   p {
     color: ${(props) => props.theme['gray-600']};
@@ -51,10 +51,10 @@ export const MenuList = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  margin-top: 54px;
-  gap: 32px;
+  margin-top: 3.375rem;
+  gap: 2rem;
 `
 export const CoffeeCard = styled.div`
-  width: 256px;
-  height: 310px;
+  width: 3.375rem;
+  height: 19.37rem;
 `
