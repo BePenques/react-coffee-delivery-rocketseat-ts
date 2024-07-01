@@ -72,26 +72,3 @@ export const FooterCoffeeCard = styled.div`
     }
   }
 `
-export const InputNumber = styled.div`
-  margin-right: 8px;
-  input {
-    width: 24px;
-    height: 38px;
-    border: none;
-    background-color: ${(props) => props.theme['gray-50']};
-    box-shadow: none;
-  }
-  button {
-    width: 24px;
-    color: ${(props) => props.theme['purple-400']};
-    border: none;
-    background-color: ${(props) => props.theme['gray-50']};
-    cursor: pointer;
-  }
-
-  input[type='number']::-webkit-inner-spin-button,
-  input[type='number']::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-`

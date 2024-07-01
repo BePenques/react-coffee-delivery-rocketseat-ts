@@ -2,7 +2,7 @@ import { HeaderContainer } from './styles'
 import { MapPin } from 'phosphor-react'
 import Logo from '../../assets/Logo.svg'
 import { NavLink } from 'react-router-dom'
-import { CartButton } from '../../pages/Home/components/CartButton'
+import { CartButton } from '../CartButton'
 // import { CartButton } from '../../components/CartButton'
 
 export function Header() {

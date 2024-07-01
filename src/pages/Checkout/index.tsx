@@ -2,42 +2,82 @@ import {
   CheckoutMain,
   DeliveryPaymentSection,
   FormBox,
-  PaymentMethodBox,
+  PaymentMethodSection,
   PaymentBox,
   VerticalCardStyle,
   TotalPrices,
+  ButtonPaymentMethodBox,
+  ResumeSection,
+  PriceLine,
+  PriceLineTotal,
+  ButtonConfirmOrder,
+  TrashButton,
 } from './styles'
+import {
+  MapPinLine,
+  CurrencyDollar,
+  CreditCard,
+  Bank,
+  Money,
+  Trash,
+} from 'phosphor-react'
+import { InputNumber } from '../../components/InputNumber'
+import { NavLink } from 'react-router-dom'
 
 export function Checkout() {
   return (
     <CheckoutMain>
       <DeliveryPaymentSection>
-        <p>Complete seu pedido</p>
+        <h1>Complete seu pedido</h1>
         <FormBox>
-          <p>Endereço de entrega</p>
-          <p>Informe o endereço onde deseja receber seu pedido</p>
+          <div>
+            <MapPinLine size={22} color="#C47F17" />
+            <span>
+              <h3>Endereço de entrega</h3>
+              <p>Informe o endereço onde deseja receber seu pedido</p>
+            </span>
+          </div>
           <form action="">
-            <input type="text" placeholder="CEP" />
-            <input type="text" placeholder="Rua" />
-            <input type="text" placeholder="Número" />
-            <input type="text" placeholder="Complemento" />
-            <input type="text" placeholder="Bairro" />
-            <input type="text" placeholder="Cidade" />
-            <input type="text" placeholder="UF" />
+            <input type="text" name="CEP" placeholder="CEP" />
+            <input type="text" name="Rua" placeholder="Rua" />
+            <input type="text" name="Numero" placeholder="Número" />
+            <input type="text" name="Complemento" placeholder="Complemento" />
+            <input type="text" name="Bairro" placeholder="Bairro" />
+            <input type="text" name="Cidade" placeholder="Cidade" />
+            <input type="text" name="UF" placeholder="UF" />
           </form>
         </FormBox>
-        <PaymentMethodBox>
-          <p>Pagamento</p>
-          <p>
-            O pagamento é feito na entrega. Escolha a forma que deseja pagar
-          </p>
-          <button>Cartão de crédito</button>
-          <button>cartão de débito</button>
-          <button>dinheiro</button>
-        </PaymentMethodBox>
+        <PaymentMethodSection>
+          <div>
+            <CurrencyDollar size={22} color="#8047F8" />
+            <span>
+              <h3>Pagamento</h3>
+              <p>
+                O pagamento é feito na entrega. Escolha a forma que deseja pagar
+              </p>
+            </span>
+          </div>
+          <ButtonPaymentMethodBox>
+            <button>
+              {' '}
+              <CreditCard size={16} color="#8047F8" />
+              CARTÃO DE CRÉDITO
+            </button>
+            <button>
+              {' '}
+              <Bank size={16} color="#8047F8" />
+              CARTÃO DE DÉBITO
+            </button>
+            <button>
+              {' '}
+              <Money size={16} color="#8047F8" />
+              DINHEIRO
+            </button>
+          </ButtonPaymentMethodBox>
+        </PaymentMethodSection>
       </DeliveryPaymentSection>
-      <div>
-        <p>Cafés selecionados</p>
+      <ResumeSection>
+        <h1>Cafés selecionados</h1>
         <PaymentBox>
           <VerticalCardStyle>
             {/* card vertical */}
@@ -45,11 +85,14 @@ export function Checkout() {
             <div>
               <p>Expresso Tradicional</p>
               <span>
-                <button>qtde</button>
-                <button>remover</button>
+                <InputNumber />
+                <TrashButton>
+                  <Trash size={16} color="#8047F8" />
+                  REMOVER
+                </TrashButton>
               </span>
             </div>
-            <p>R$ 9,90</p>
+            <h3>R$ 9,90</h3>
           </VerticalCardStyle>
           <VerticalCardStyle>
             {/* card vertical */}
@@ -57,29 +100,34 @@ export function Checkout() {
             <div>
               <p>Expresso Tradicional</p>
               <span>
-                <button>qtde</button>
-                <button>remover</button>
+                <InputNumber />
+                <TrashButton>
+                  <Trash size={16} color="#8047F8" />
+                  REMOVER
+                </TrashButton>
               </span>
             </div>
-            <p>R$ 9,90</p>
+            <h3>R$ 9,90</h3>
           </VerticalCardStyle>
           <TotalPrices>
-            <span>
+            <PriceLine>
               <p>Total de itens</p>
-              <p>R$ 29,70</p>
-            </span>
-            <span>
+              <span>R$ 29,70</span>
+            </PriceLine>
+            <PriceLine>
               <p>Entrega</p>
-              <p>R$ 29,70</p>
-            </span>
-            <span>
+              <span>R$ 29,70</span>
+            </PriceLine>
+            <PriceLineTotal>
               <p>Total</p>
               <p>R$ 33,20</p>
-            </span>
+            </PriceLineTotal>
           </TotalPrices>
-          <button>Confirmar Pedido</button>
+          <NavLink to="/success" title="Home">
+            <ButtonConfirmOrder>CONFIRMAR PEDIDO</ButtonConfirmOrder>
+          </NavLink>
         </PaymentBox>
-      </div>
+      </ResumeSection>
     </CheckoutMain>
   )
 }

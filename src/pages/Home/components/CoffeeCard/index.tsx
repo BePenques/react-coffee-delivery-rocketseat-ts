@@ -1,11 +1,6 @@
-import {
-  CoffeeCardStyle,
-  TagCoffee,
-  FooterCoffeeCard,
-  InputNumber,
-  TagBox,
-} from './styles'
-import { CartButton } from '../CartButton'
+import { CoffeeCardStyle, TagCoffee, FooterCoffeeCard, TagBox } from './styles'
+import { CartButton } from '../../../../components/CartButton'
+import { InputNumber } from '../../../../components/InputNumber'
 
 export interface CoffeeCardType {
   id: number
@@ -20,21 +15,6 @@ interface CardProps {
 }
 
 export function CoffeeCard({ card }: CardProps) {
-  // function mais() {
-  //   const atual = document.getElementById('total')?.value
-  //   const novo = atual - -1 // Evitando Concatenacoes
-  //   document.getElementById('total')?.value = novo
-  // }
-
-  // function menos() {
-  //   const atual = document.getElementById('total')?.value
-  //   if (atual > 0) {
-  //     // evita números negativos
-  //     const novo = atual - 1
-  //     document.getElementById('total')?.value = novo
-  //   }
-  // }
-
   return (
     <CoffeeCardStyle>
       <img src={`/src/assets/coffees/${card.imageName}.svg`} alt="" />
@@ -51,12 +31,7 @@ export function CoffeeCard({ card }: CardProps) {
           <span>R$</span> {card.price}
         </p>
         <div>
-          <InputNumber>
-            <button>-</button>
-            <input min="1" max="99" id="total" type="number" />
-            <button>+</button>
-          </InputNumber>
-
+          <InputNumber />
           <CartButton color={'white'} bgcolor={'purple'} />
         </div>
       </FooterCoffeeCard>
