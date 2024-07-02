@@ -240,6 +240,7 @@ export const TrashButton = styled.button`
   width: 91px;
   height: 32px;
   border-radius: 6px;
+  cursor: pointer;
 `
 
 export const TotalPrices = styled.div`
