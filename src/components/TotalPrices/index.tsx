@@ -1,11 +1,4 @@
-import {
-  TotalPricesLayout,
-  PriceLine,
-  PriceLineTotal,
-  ButtonConfirmOrder,
-} from './styles'
-
-import { NavLink } from 'react-router-dom'
+import { TotalPricesLayout, PriceLine, PriceLineTotal } from './styles'
 
 export function TotalPrices() {
   return (
@@ -22,10 +15,6 @@ export function TotalPrices() {
         <p>Total</p>
         <p>R$ 33,20</p>
       </PriceLineTotal>
-
-      <NavLink to="/success" title="Home">
-        <ButtonConfirmOrder>CONFIRMAR PEDIDO</ButtonConfirmOrder>
-      </NavLink>
     </TotalPricesLayout>
   )
 }

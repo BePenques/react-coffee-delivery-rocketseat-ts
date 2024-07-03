@@ -10,7 +10,7 @@ export const DeliveryPaymentSection = styled.section`
 
   h1 {
     margin-bottom: 0.937rem;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-family: 'Baloo 2';
     line-height: 130%;
     font-weight: bold;
@@ -18,7 +18,7 @@ export const DeliveryPaymentSection = styled.section`
 `
 
 export const FormBox = styled.div`
-  height: 22.62rem;
+  height: auto;
   background-color: ${(props) => props.theme['gray-30']};
   padding: 2.5rem;
   border-radius: 6px;
@@ -26,17 +26,17 @@ export const FormBox = styled.div`
   div {
     display: flex;
     flex-direction: row;
-    gap: 8px;
+    gap: 0.5rem;
   }
 
   h3 {
-    font-size: 16px;
+    font-size: 1rem;
     font-family: 'Roboto';
     line-height: 130%;
     font-weight: normal;
   }
   p {
-    font-size: 14px;
+    font-size: 0.875rem;
     font-family: 'Roboto';
     line-height: 130%;
     margin-bottom: 2rem;
@@ -45,7 +45,7 @@ export const FormBox = styled.div`
 export const ResumeSection = styled.section`
   h1 {
     margin-bottom: 0.937rem;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-family: 'Baloo 2';
     line-height: 130%;
     font-weight: bold;
@@ -72,42 +72,38 @@ export const PaymentBox = styled.div`
     border-top: 1px solid ${(props) => props.theme['gray-50']};
   }
 `
+export const ButtonConfirmOrder = styled.button`
+  border: none;
+  padding: 0.5rem 0.75rem;
+  background-color: ${(props) => props.theme['yellow-400']};
+  color: white;
+  font-size: 0.875rem;
+  border-radius: 6px;
+  width: 23rem;
+  height: 2.87rem;
+  cursor: pointer;
+`
+export const FormContainer = styled.form`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 
-// export const ButtonConfirmOrder = styled.button`
-//   border: none;
-//   padding: 0.5rem 0.75rem;
-//   background-color: ${(props) => props.theme['yellow-400']};
-//   color: white;
-//   font-size: 0.875rem;
-//   border-radius: 6px;
-//   width: 23rem;
-//   height: 2.87rem;
-//   cursor: pointer;
-// `
-// export const TotalPricesLayout = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   gap: 0.75rem;
-//   color: ${(props) => props.theme['gray-400']};
-//   font-family: 'Roboto';
-// `
-// export const PriceLine = styled.div`
-//   display: flex;
-//   justify-content: space-between;
+  input::-webkit-input-placeholder {
+    color: ${(props) => props.theme['gray-300']};
+  }
 
-//   p {
-//     font-size: 14px;
-//   }
-//   span {
-//     font-size: 16px;
-//   }
-// `
-// export const PriceLineTotal = styled.div`
-//   display: flex;
-//   justify-content: space-between;
+  input:-moz-placeholder {
+    /* Firefox 18- */
+    color: ${(props) => props.theme['gray-300']};
+  }
 
-//   p {
-//     font-size: 20px;
-//     font-weight: bold;
-//   }
-// `
+  input::-moz-placeholder {
+    /* Firefox 19+ */
+    color: ${(props) => props.theme['gray-300']};
+  }
+
+  input:-ms-input-placeholder {
+    color: ${(props) => props.theme['gray-300']};
+  }
+`

@@ -28,15 +28,3 @@ export const PriceLineTotal = styled.div`
     font-weight: bold;
   }
 `
-
-export const ButtonConfirmOrder = styled.button`
-  border: none;
-  padding: 0.5rem 0.75rem;
-  background-color: ${(props) => props.theme['yellow-400']};
-  color: white;
-  font-size: 0.875rem;
-  border-radius: 6px;
-  width: 23rem;
-  height: 2.87rem;
-  cursor: pointer;
-`
