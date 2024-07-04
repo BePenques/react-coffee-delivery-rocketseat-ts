@@ -1,3 +1,4 @@
+import { ReactNode } from 'react'
 import { FieldError, UseFormRegister } from 'react-hook-form'
 
 export type FormData = {
@@ -8,6 +9,7 @@ export type FormData = {
   bairro: string
   cidade: string
   uf: string
+  paymentMethod: string
 }
 
 export type ValidFieldNames =
@@ -18,6 +20,7 @@ export type ValidFieldNames =
   | 'bairro'
   | 'cidade'
   | 'uf'
+  | 'paymentMethod'
 
 export type FormFieldProps = {
   type: string
@@ -26,4 +29,15 @@ export type FormFieldProps = {
   register: UseFormRegister<FormData>
   error: FieldError | undefined
   valueAsNumber?: boolean
+}
+
+export type FormFieldRadioProps = {
+  type: string
+  name: ValidFieldNames
+  value: string
+  register: UseFormRegister<FormData>
+  error: FieldError | undefined
+  isSelected: boolean
+  valueAsNumber?: boolean
+  children?: ReactNode | undefined
 }

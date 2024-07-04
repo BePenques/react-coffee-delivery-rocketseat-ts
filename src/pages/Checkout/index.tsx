@@ -6,9 +6,17 @@ import {
   ResumeSection,
   ButtonConfirmOrder,
   FormContainer,
+  PaymentMethodSectionStyle,
+  ButtonPaymentMethodBox,
+  ErrorMessage,
 } from './styles'
-import { MapPinLine } from 'phosphor-react'
-import { PaymentMethodSection } from '../../components/PaymentMethodSection'
+import {
+  MapPinLine,
+  CurrencyDollar,
+  CreditCard,
+  Bank,
+  Money,
+} from 'phosphor-react'
 import { VerticalCard } from '../../components/VerticalCard'
 import { TotalPrices } from '../../components/TotalPrices'
 import FormField from '../../components/FormField'
@@ -16,6 +24,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
 import { FormData } from '../../components/FormField/types'
+import FormFieldRadio from '../../components/FormFieldRadio'
 
 const newCheckoutFormValidationSchema = zod.object({
   cep: zod
@@ -27,10 +36,12 @@ const newCheckoutFormValidationSchema = zod.object({
   cidade: zod.string().min(1, 'Informe a Cidade'),
   uf: zod.string().min(2, 'Informe o Estado').max(2),
   complemento: zod.string(),
+  paymentMethod: zod.enum(['credit', 'debit', 'money'], {
+    invalid_type_error: 'Informe um método de pagamento',
+  }),
 })
 
 export function Checkout() {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   function onSubmit(data: FormData) {
     console.log('SUCCESS', data)
   }
@@ -38,10 +49,13 @@ export function Checkout() {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm<FormData>({
     resolver: zodResolver(newCheckoutFormValidationSchema),
   })
+
+  const selectedPaymentMethod = watch('paymentMethod')
 
   return (
     <CheckoutMain>
@@ -107,7 +121,55 @@ export function Checkout() {
             />
           </FormContainer>
         </FormBox>
-        <PaymentMethodSection></PaymentMethodSection>
+        <PaymentMethodSectionStyle>
+          <div>
+            <CurrencyDollar size={22} color="#8047F8" />
+            <span>
+              <h3>Pagamento</h3>
+              <p>
+                O pagamento é feito na entrega. Escolha a forma que deseja pagar
+              </p>
+            </span>
+          </div>
+          <ButtonPaymentMethodBox>
+            <FormFieldRadio
+              isSelected={selectedPaymentMethod === 'credit'}
+              type="radio"
+              name="paymentMethod"
+              value="credit"
+              register={register}
+              error={errors.paymentMethod}
+            >
+              <CreditCard size={16} color="#8047F8" />
+              CARTÃO DE CRÉDITO
+            </FormFieldRadio>
+            <FormFieldRadio
+              isSelected={selectedPaymentMethod === 'debit'}
+              type="radio"
+              name="paymentMethod"
+              value="debit"
+              register={register}
+              error={errors.paymentMethod}
+            >
+              <Bank size={16} color="#8047F8" />
+              CARTÃO DE DÉBITO
+            </FormFieldRadio>
+            <FormFieldRadio
+              isSelected={selectedPaymentMethod === 'money'}
+              type="radio"
+              name="paymentMethod"
+              value="money"
+              register={register}
+              error={errors.paymentMethod}
+            >
+              <Money size={16} color="#8047F8" />
+              DINHEIRO
+            </FormFieldRadio>
+          </ButtonPaymentMethodBox>
+          {errors.paymentMethod && (
+            <ErrorMessage>{errors.paymentMethod.message}</ErrorMessage>
+          )}
+        </PaymentMethodSectionStyle>
       </DeliveryPaymentSection>
       <ResumeSection>
         <h1>Cafés selecionados</h1>

@@ -64,7 +64,7 @@ export const PaymentBox = styled.div`
   border-bottom-left-radius: 44px;
   border-bottom-right-radius: 6px;
   gap: 1.5rem;
-  /* gap: 3rem; */
+
   hr {
     width: 100%;
     height: 1px;
@@ -106,4 +106,43 @@ export const FormContainer = styled.form`
   input:-ms-input-placeholder {
     color: ${(props) => props.theme['gray-300']};
   }
+`
+export const PaymentMethodSectionStyle = styled.section`
+  height: 12.93rem;
+  background-color: ${(props) => props.theme['gray-30']};
+  padding: 2.5rem;
+  margin-top: 0.75rem;
+  border-radius: 6px;
+  box-shadow: none;
+
+  div {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  h3 {
+    font-size: 16px;
+    font-family: 'Roboto';
+    line-height: 130%;
+    font-weight: normal;
+  }
+  p {
+    font-size: 14px;
+    font-family: 'Roboto';
+    line-height: 130%;
+    margin-bottom: 2rem;
+  }
+`
+export const ButtonPaymentMethodBox = styled.aside`
+  display: flex;
+  gap: 12px;
+  border: none;
+  box-shadow: none;
+`
+export const ErrorMessage = styled.span`
+  font-size: 10px;
+  color: red;
+  margin-top: 2px;
+  font-family: 'Roboto';
 `
