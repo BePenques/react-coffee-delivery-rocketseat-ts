@@ -72,3 +72,43 @@ export const FooterCoffeeCard = styled.div`
     }
   }
 `
+export const CartBtn = styled.span`
+  width: 2.37rem;
+  height: 2.37rem;
+  background-color: ${(props) => props.theme['purple-400']};
+  border: transparent;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+`
+export const InputNumberStyle = styled.div`
+  margin-right: 8px;
+  display: flex;
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 32px;
+    border: none;
+    background-color: ${(props) => props.theme['gray-50']};
+    box-shadow: none;
+    cursor: default;
+    p {
+      font-size: 16px;
+      font-weight: 400;
+    }
+  }
+  button {
+    width: 24px;
+    height: 32px;
+    color: ${(props) => props.theme['purple-400']};
+    border: none;
+    background-color: ${(props) => props.theme['gray-50']};
+    cursor: pointer;
+    border: none;
+  }
+`

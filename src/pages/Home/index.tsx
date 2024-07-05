@@ -9,8 +9,10 @@ import {
 } from './styles'
 import coffeeimage from '../../assets/coffee-image.svg'
 import { BannerTags } from './components/BannerTags'
-import { CoffeeCard } from './components/CoffeeCard'
+import { CoffeeCard, Order } from './components/CoffeeCard'
 import { CoffeeCardType } from '../Home/components/CoffeeCard'
+import { useState } from 'react'
+// import { CartContext } from '../../contexts/CartProvider'
 
 const coffeeCards: CoffeeCardType[] = [
   {
@@ -133,6 +135,36 @@ const coffeeCards: CoffeeCardType[] = [
 ]
 
 export function Home() {
+  // const { teste } = useContext(CartContext)
+  const [cart, setCart] = useState<Order[]>([])
+
+  function addCart({ card, quantity }: Order) {
+    console.log('adicionar no carrinho')
+    console.log(cart)
+    // verificar se o café já existe no carrinho
+    // se existir adiciona a nova quantidade
+    // se não existir cria o café com a quantidade
+
+    const exists = cart.find((item) => item.card.id === card.id)
+
+    if (exists) {
+      const updateOrder = cart.map((item) => {
+        if (item.card.id === card.id) {
+          return { ...item, quantity: item.quantity + quantity }
+        }
+
+        return { ...item }
+      })
+      setCart(updateOrder)
+    } else {
+      const newOrder: Order = {
+        card,
+        quantity,
+      }
+
+      setCart((state) => [...state, newOrder])
+    }
+  }
   return (
     <HomeContainer>
       <BannerContainer>
@@ -150,7 +182,7 @@ export function Home() {
         <p>Nossos cafés</p>
         <MenuList>
           {coffeeCards.map((card) => {
-            return <CoffeeCard key={card.id} card={card} />
+            return <CoffeeCard key={card.id} card={card} onAddCart={addCart} />
           })}
         </MenuList>
       </MenuContainer>

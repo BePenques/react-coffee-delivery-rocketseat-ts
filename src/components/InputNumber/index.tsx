@@ -4,7 +4,9 @@ export function InputNumber() {
   return (
     <InputNumberStyle>
       <button>-</button>
-      <input min="1" max="99" id="total" type="number" />
+      <div>
+        <p>1</p>
+      </div>
       <button>+</button>
     </InputNumberStyle>
   )

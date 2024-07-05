@@ -4,12 +4,20 @@ export const InputNumberStyle = styled.div`
   margin-right: 8px;
   display: flex;
 
-  input {
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 24px;
     height: 32px;
     border: none;
     background-color: ${(props) => props.theme['gray-50']};
     box-shadow: none;
+    cursor: default;
+    p {
+      font-size: 16px;
+      font-weight: 400;
+    }
   }
   button {
     width: 24px;
@@ -19,11 +27,5 @@ export const InputNumberStyle = styled.div`
     background-color: ${(props) => props.theme['gray-50']};
     cursor: pointer;
     border: none;
-  }
-
-  input[type='number']::-webkit-inner-spin-button,
-  input[type='number']::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
   }
 `
