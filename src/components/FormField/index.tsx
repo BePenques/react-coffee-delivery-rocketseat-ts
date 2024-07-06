@@ -1,4 +1,4 @@
-import { FormFieldProps } from './types'
+import { FormFieldProps } from '../../types'
 import { FormFieldStyle, ErrorMessage, Box } from './style'
 
 const FormField: React.FC<FormFieldProps> = ({

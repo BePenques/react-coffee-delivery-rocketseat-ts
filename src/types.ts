@@ -41,3 +41,16 @@ export type FormFieldRadioProps = {
   valueAsNumber?: boolean
   children?: ReactNode | undefined
 }
+
+export interface CoffeeCardType {
+  id: number
+  name: string
+  description: string
+  imageName: string
+  price: string
+  tags: string[]
+}
+export interface Order {
+  card: CoffeeCardType
+  quantity: number
+}

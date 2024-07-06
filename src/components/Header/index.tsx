@@ -2,26 +2,28 @@ import { HeaderContainer } from './styles'
 import { MapPin } from 'phosphor-react'
 import Logo from '../../assets/Logo.svg'
 import { NavLink } from 'react-router-dom'
-import { CartButton } from '../CartButton'
-// import { CartButton } from '../../components/CartButton'
+import { useContext } from 'react'
+import { CartButton } from '../../components/CartButton'
+import { CartContext } from '../../contexts/CartProvider'
 
 export function Header() {
+  const { cart } = useContext(CartContext)
+
   return (
     <HeaderContainer>
       <NavLink to="/" title="Home">
         <img src={Logo} alt="" />
       </NavLink>
-      <nav>
-        <a>
-          <div>
-            <MapPin size={22} weight="fill" color="#8047F8" />
-            <p>Campinas, SP</p>
-          </div>
-        </a>
-        <NavLink to="/checkout" title="Checkout">
+      <aside>
+        <div>
+          <MapPin size={22} weight="fill" color="#8047F8" />
+          <p>Campinas, SP</p>
+        </div>
+        <NavLink to="/checkout">
           <CartButton color={'darkYellow'} bgcolor={'yellow'} />
+          {cart.length > 0 ? <span>{cart.length}</span> : null}
         </NavLink>
-      </nav>
+      </aside>
     </HeaderContainer>
   )
 }

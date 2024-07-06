@@ -9,33 +9,21 @@ import {
 // import { CartButton } from '../../../../components/CartButton'
 // import { InputNumber } from '../../../../components/InputNumber'
 import { ShoppingCart } from 'phosphor-react'
-import { useState } from 'react'
-
-export interface CoffeeCardType {
-  id: number
-  name: string
-  description: string
-  imageName: string
-  price: string
-  tags: string[]
-}
-export interface Order {
-  card: CoffeeCardType
-  quantity: number
-}
+import { useContext, useState } from 'react'
+import { CoffeeCardType } from '../../../../types'
+import { CartContext } from '../../../../contexts/CartProvider'
 
 interface CardProps {
   card: CoffeeCardType
-  // onAddCart: (card: CoffeeCardType, quantity: number) => void
-  onAddCart: ({ card, quantity }: Order) => void
-  // onAddQuantity: (card: CoffeeCardType) => void
 }
 
-export function CoffeeCard({ card, onAddCart }: CardProps) {
+export function CoffeeCard({ card }: CardProps) {
   const [quantity, setQuantity] = useState(1)
 
+  const { addCart } = useContext(CartContext)
+
   function handleAddCart() {
-    onAddCart({ card, quantity })
+    addCart({ card, quantity })
   }
 
   function addQuantity() {

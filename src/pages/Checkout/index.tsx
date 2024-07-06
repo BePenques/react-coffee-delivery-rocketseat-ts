@@ -23,7 +23,7 @@ import FormField from '../../components/FormField'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
-import { FormData } from '../../components/FormField/types'
+import { FormData } from '../../types'
 import FormFieldRadio from '../../components/FormFieldRadio'
 
 const newCheckoutFormValidationSchema = zod.object({

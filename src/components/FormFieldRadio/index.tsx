@@ -1,4 +1,4 @@
-import { FormFieldRadioProps } from '../FormField/types'
+import { FormFieldRadioProps } from '../../types'
 import { Box } from './style'
 
 const FormField: React.FC<FormFieldRadioProps> = ({
