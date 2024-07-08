@@ -56,7 +56,7 @@ export const PaymentBox = styled.div`
   display: flex;
   flex-direction: column;
   width: 28rem;
-  height: 31.12rem;
+  height: auto;
   background-color: ${(props) => props.theme['gray-30']};
   padding: 2.5rem;
   border-top-right-radius: 44px;

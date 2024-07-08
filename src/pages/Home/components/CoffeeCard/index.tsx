@@ -17,12 +17,11 @@ interface CardProps {
 }
 
 export function CoffeeCard({ card }: CardProps) {
-  const { addCart, cart } = useContext(CartContext)
+  const { addCart } = useContext(CartContext)
   const [quantity, setQuantity] = useState(1)
 
   function handleAddCart() {
     addCart({ card, quantity })
-    console.log(cart)
   }
 
   function HandleAddQuantity() {
@@ -49,7 +48,10 @@ export function CoffeeCard({ card }: CardProps) {
       <h2>{card.description}</h2>
       <FooterCoffeeCard>
         <p>
-          <span>R$</span> {card.price}
+          {new Intl.NumberFormat('pt-br', {
+            currency: 'BRL',
+            style: 'currency',
+          }).format(card.price)}
         </p>
         <div>
           <InputNumber

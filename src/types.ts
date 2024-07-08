@@ -47,7 +47,7 @@ export interface CoffeeCardType {
   name: string
   description: string
   imageName: string
-  price: string
+  price: number
   tags: string[]
 }
 export interface Order {

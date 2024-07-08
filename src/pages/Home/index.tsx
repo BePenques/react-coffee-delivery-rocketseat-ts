@@ -18,7 +18,7 @@ const coffeeCards: CoffeeCardType[] = [
     name: 'Expresso Tradicional',
     description: 'O tradicional café feito com água quente e grãos moídos',
     imageName: 'expressoTradicional',
-    price: '8,90',
+    price: 8.9,
     tags: ['TRADICIONAL'],
   },
   {
@@ -26,7 +26,7 @@ const coffeeCards: CoffeeCardType[] = [
     name: 'Expresso Americano',
     description: 'Expresso diluído, menos intenso que o tradicional',
     imageName: 'expressoAmericano',
-    price: '9,90',
+    price: 9.9,
     tags: ['TRADICIONAL'],
   },
   {
@@ -34,7 +34,7 @@ const coffeeCards: CoffeeCardType[] = [
     name: 'Expresso Cremoso',
     description: 'Café expresso tradicional com espuma cremosa',
     imageName: 'expressoCremoso',
-    price: '9,90',
+    price: 9.9,
     tags: ['TRADICIONAL'],
   },
   {
@@ -42,7 +42,7 @@ const coffeeCards: CoffeeCardType[] = [
     name: 'Expresso Gelado',
     description: 'Bebida preparada com café expresso e cubos de gelo',
     imageName: 'expressoGelado',
-    price: '9,90',
+    price: 9.9,
     tags: ['TRADICIONAL', 'GELADO'],
   },
   {
@@ -50,7 +50,7 @@ const coffeeCards: CoffeeCardType[] = [
     name: 'Café com Leite',
     description: 'Meio a meio de expresso tradicional com leite vaporizado',
     imageName: 'cafeComLeite',
-    price: '9,90',
+    price: 9.9,
     tags: ['TRADICIONAL', 'COM LEITE'],
   },
   {
@@ -59,7 +59,7 @@ const coffeeCards: CoffeeCardType[] = [
     description:
       'Uma dose de café expresso com o dobro de leite e espuma cremosa',
     imageName: 'latte',
-    price: '9,90',
+    price: 9.9,
     tags: ['TRADICIONAL', 'COM LEITE'],
   },
   {
@@ -68,7 +68,7 @@ const coffeeCards: CoffeeCardType[] = [
     description:
       'Bebida com canela feita de doses iguais de café, leite e espuma',
     imageName: 'capuccino',
-    price: '9,90',
+    price: 9.9,
     tags: ['TRADICIONAL', 'COM LEITE'],
   },
   {
@@ -77,7 +77,7 @@ const coffeeCards: CoffeeCardType[] = [
     description:
       'Café expresso misturado com um pouco de leite quente e espuma',
     imageName: 'macchiato',
-    price: '9,90',
+    price: 9.9,
     tags: ['TRADICIONAL', 'COM LEITE'],
   },
   {
@@ -86,7 +86,7 @@ const coffeeCards: CoffeeCardType[] = [
     description:
       'Café expresso misturado com um pouco de leite quente e espuma',
     imageName: 'mocaccino',
-    price: '9,90',
+    price: 9.9,
     tags: ['TRADICIONAL', 'COM LEITE'],
   },
   {
@@ -94,7 +94,7 @@ const coffeeCards: CoffeeCardType[] = [
     name: 'Chocolate Quente',
     description: 'Bebida feita com chocolate dissolvido no leite quente e café',
     imageName: 'chocolateQuente',
-    price: '9,90',
+    price: 9.9,
     tags: ['ESPECIAL', 'COM LEITE'],
   },
   {
@@ -103,7 +103,7 @@ const coffeeCards: CoffeeCardType[] = [
     description:
       'Drink gelado de café expresso com rum, creme de leite e hortelã',
     imageName: 'cubano',
-    price: '9,90',
+    price: 9.9,
     tags: ['ESPECIAL', 'ALCOÓLICO', 'GELADO'],
   },
   {
@@ -111,7 +111,7 @@ const coffeeCards: CoffeeCardType[] = [
     name: 'Havaiano',
     description: 'Bebida adocicada preparada com café e leite de coco',
     imageName: 'havaiano',
-    price: '9,90',
+    price: 9.9,
     tags: ['ESPECIAL'],
   },
   {
@@ -119,7 +119,7 @@ const coffeeCards: CoffeeCardType[] = [
     name: 'Árabe',
     description: 'Bebida preparada com grãos de café árabe e especiarias',
     imageName: 'arabe',
-    price: '9,90',
+    price: 9.9,
     tags: ['ESPECIAL'],
   },
   {
@@ -127,7 +127,7 @@ const coffeeCards: CoffeeCardType[] = [
     name: 'Irlandês',
     description: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
     imageName: 'irlandes',
-    price: '9,90',
+    price: 9.9,
     tags: ['ESPECIAL', 'ALCOÓLICO'],
   },
 ]
