@@ -1,13 +1,30 @@
 import { InputNumberStyle } from './styles'
 
-export function InputNumber() {
+interface InputNumberProps {
+  onReduceQuantity: () => void
+  onAddQuantity: () => void
+  quantity: number
+}
+
+export function InputNumber({
+  onReduceQuantity,
+  onAddQuantity,
+  quantity,
+}: InputNumberProps) {
+  function handleReduceQuantity() {
+    onReduceQuantity()
+  }
+  function HandleAddQuantity() {
+    onAddQuantity()
+  }
+
   return (
     <InputNumberStyle>
-      <button>-</button>
+      <button onClick={handleReduceQuantity}>-</button>
       <div>
-        <p>1</p>
+        <p>{quantity}</p>
       </div>
-      <button>+</button>
+      <button onClick={HandleAddQuantity}>+</button>
     </InputNumberStyle>
   )
 }

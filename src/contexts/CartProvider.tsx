@@ -1,10 +1,12 @@
 import { createContext, ReactNode, useState } from 'react'
-import { Order } from '../types'
-// import { Order } from '../pages/Home/components/CoffeeCard'
+import { Order, CoffeeCardType } from '../types'
 
 interface CartContextType {
   cart: Order[]
   addCart: ({ card, quantity }: Order) => void
+
+  addQuantityOfOrder: (card: CoffeeCardType) => void
+  reduceQuantityOfOrder: (card: CoffeeCardType) => void
 }
 
 export const CartContext = createContext({} as CartContextType)
@@ -43,11 +45,34 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     }
   }
 
+  function addQuantityOfOrder(card: CoffeeCardType) {
+    const updateOrder = cart.map((item) => {
+      if (item.card.id === card.id) {
+        return { ...item, quantity: (item.quantity += 1) }
+      }
+
+      return { ...item }
+    })
+    setCart(updateOrder)
+  }
+
+  function reduceQuantityOfOrder(card: CoffeeCardType) {
+    const updateOrder = cart.map((item) => {
+      if (item.card.id === card.id) {
+        return { ...item, quantity: (item.quantity -= 1) }
+      }
+
+      return { ...item }
+    })
+    setCart(updateOrder)
+  }
+
   return (
     <CartContext.Provider
       value={{
         addCart,
-
+        addQuantityOfOrder,
+        reduceQuantityOfOrder,
         cart,
       }}
     >

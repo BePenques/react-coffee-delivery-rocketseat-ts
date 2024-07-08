@@ -25,6 +25,8 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
 import { FormData } from '../../types'
 import FormFieldRadio from '../../components/FormFieldRadio'
+import { useContext } from 'react'
+import { CartContext } from '../../contexts/CartProvider'
 
 const newCheckoutFormValidationSchema = zod.object({
   cep: zod
@@ -42,6 +44,8 @@ const newCheckoutFormValidationSchema = zod.object({
 })
 
 export function Checkout() {
+  const { cart } = useContext(CartContext)
+
   function onSubmit(data: FormData) {
     console.log('SUCCESS', data)
   }
@@ -174,7 +178,15 @@ export function Checkout() {
       <ResumeSection>
         <h1>Cafés selecionados</h1>
         <PaymentBox>
-          <VerticalCard></VerticalCard>
+          {cart.map((order) => {
+            return (
+              <VerticalCard
+                key={order.card.id}
+                card={order.card}
+                quantity={order.quantity}
+              />
+            )
+          })}
           <TotalPrices></TotalPrices>
           {/* <NavLink to="/success" title="Home"> */}
           <ButtonConfirmOrder type="submit" form="formCheckout">

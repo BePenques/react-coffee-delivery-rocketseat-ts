@@ -4,10 +4,9 @@ import {
   FooterCoffeeCard,
   TagBox,
   CartBtn,
-  InputNumberStyle,
 } from './styles'
-// import { CartButton } from '../../../../components/CartButton'
-// import { InputNumber } from '../../../../components/InputNumber'
+
+import { InputNumber } from '../../../../components/InputNumber'
 import { ShoppingCart } from 'phosphor-react'
 import { useContext, useState } from 'react'
 import { CoffeeCardType } from '../../../../types'
@@ -18,22 +17,22 @@ interface CardProps {
 }
 
 export function CoffeeCard({ card }: CardProps) {
+  const { addCart, cart } = useContext(CartContext)
   const [quantity, setQuantity] = useState(1)
-
-  const { addCart } = useContext(CartContext)
 
   function handleAddCart() {
     addCart({ card, quantity })
+    console.log(cart)
   }
 
-  function addQuantity() {
+  function HandleAddQuantity() {
     if (quantity >= 0) {
-      setQuantity(quantity + 1)
+      setQuantity((state) => state + 1)
     }
   }
-  function reduceQuantity() {
+  function HandleReduceQuantity() {
     if (quantity > 1) {
-      setQuantity(quantity - 1)
+      setQuantity((state) => state - 1)
     }
   }
 
@@ -53,19 +52,15 @@ export function CoffeeCard({ card }: CardProps) {
           <span>R$</span> {card.price}
         </p>
         <div>
-          {/* <InputNumber /> */}
-          <InputNumberStyle>
-            <button onClick={reduceQuantity}>-</button>
-            <div>
-              <p>{quantity}</p>
-            </div>
-            <button onClick={addQuantity}>+</button>
-          </InputNumberStyle>
+          <InputNumber
+            onReduceQuantity={HandleReduceQuantity}
+            onAddQuantity={HandleAddQuantity}
+            quantity={quantity}
+          />
+
           <CartBtn onClick={handleAddCart} color="white">
-            {/* <CartBtn> */}
             <ShoppingCart size={22} weight="fill" color="white" />
           </CartBtn>
-          {/* <CartButton color={'white'} bgcolor={'purple'} /> */}
         </div>
       </FooterCoffeeCard>
     </CoffeeCardStyle>

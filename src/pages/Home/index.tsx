@@ -18,7 +18,7 @@ const coffeeCards: CoffeeCardType[] = [
     name: 'Expresso Tradicional',
     description: 'O tradicional café feito com água quente e grãos moídos',
     imageName: 'expressoTradicional',
-    price: '9,90',
+    price: '8,90',
     tags: ['TRADICIONAL'],
   },
   {
