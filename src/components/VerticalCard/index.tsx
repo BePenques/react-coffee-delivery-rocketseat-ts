@@ -6,16 +6,14 @@ import { useContext } from 'react'
 import { CartContext } from '../../contexts/CartProvider'
 
 export function VerticalCard({ card, quantity }: Order) {
-  const { addQuantityOfOrder, reduceQuantityOfOrder, removeOrder, cart } =
+  const { addQuantityOfOrder, reduceQuantityOfOrder, removeOrder } =
     useContext(CartContext)
 
   function HandleAddQuantity() {
     addQuantityOfOrder(card)
-    console.log(cart)
   }
   function HandleReduceQuantity() {
     reduceQuantityOfOrder(card)
-    console.log(cart)
   }
   function HandleRemoveOrder() {
     removeOrder(card)
