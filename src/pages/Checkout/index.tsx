@@ -27,6 +27,7 @@ import { FormData } from '../../types'
 import FormFieldRadio from '../../components/FormFieldRadio'
 import { useContext } from 'react'
 import { CartContext } from '../../contexts/CartProvider'
+import { useNavigate } from 'react-router-dom'
 
 const newCheckoutFormValidationSchema = zod.object({
   cep: zod
@@ -44,10 +45,14 @@ const newCheckoutFormValidationSchema = zod.object({
 })
 
 export function Checkout() {
+  const navigate = useNavigate()
+
   const { cart } = useContext(CartContext)
 
-  function onSubmit(data: FormData) {
-    console.log('SUCCESS', data)
+  // function onSubmit(data: FormData) {
+  // function onSubmit(data: FormData) {
+  function onSubmit() {
+    navigate(`/success`)
   }
 
   const {
@@ -181,7 +186,7 @@ export function Checkout() {
           {cart.map((order) => {
             return (
               <VerticalCard
-                key={order.card.id}
+                key={order?.card?.id}
                 card={order.card}
                 quantity={order.quantity}
               />

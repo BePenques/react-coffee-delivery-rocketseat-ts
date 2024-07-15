@@ -1,16 +1,10 @@
-import {
-  CoffeeCardStyle,
-  TagCoffee,
-  FooterCoffeeCard,
-  TagBox,
-  CartBtn,
-} from './styles'
+import { CoffeeCardStyle, TagCoffee, FooterCoffeeCard, TagBox } from './styles'
 
 import { InputNumber } from '../../../../components/InputNumber'
-import { ShoppingCart } from 'phosphor-react'
 import { useContext, useState } from 'react'
 import { CoffeeCardType } from '../../../../types'
 import { CartContext } from '../../../../contexts/CartProvider'
+import { CartButton } from '../../../../components/CartButton'
 
 interface CardProps {
   card: CoffeeCardType
@@ -60,9 +54,9 @@ export function CoffeeCard({ card }: CardProps) {
             quantity={quantity}
           />
 
-          <CartBtn onClick={handleAddCart} color="white">
-            <ShoppingCart size={22} weight="fill" color="white" />
-          </CartBtn>
+          <a onClick={handleAddCart}>
+            <CartButton color={'white'} bgcolor={'purple'} />
+          </a>
         </div>
       </FooterCoffeeCard>
     </CoffeeCardStyle>

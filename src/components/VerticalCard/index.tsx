@@ -21,9 +21,9 @@ export function VerticalCard({ card, quantity }: Order) {
 
   return (
     <VerticalCardStyle>
-      <img src={`/src/assets/coffees/${card.imageName}.svg`} alt="" />
+      <img src={`/src/assets/coffees/${card?.imageName}.svg`} alt="" />
       <div>
-        <p>{card.name}</p>
+        <p>{card?.name}</p>
         <span>
           <InputNumber
             onReduceQuantity={HandleReduceQuantity}
@@ -41,7 +41,7 @@ export function VerticalCard({ card, quantity }: Order) {
         {new Intl.NumberFormat('pt-br', {
           currency: 'BRL',
           style: 'currency',
-        }).format(card.price)}
+        }).format(card?.price)}
       </h3>
     </VerticalCardStyle>
   )

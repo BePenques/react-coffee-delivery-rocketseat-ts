@@ -6,7 +6,7 @@ export function TotalPrices() {
   const { cart } = useContext(CartContext)
 
   const vlrTotalItens = cart.reduce((accumulator, currentItem) => {
-    return (accumulator += currentItem.card.price * currentItem.quantity)
+    return (accumulator += currentItem?.card?.price * currentItem?.quantity)
   }, 0)
 
   const vlrTotal = cart.length > 0 ? vlrTotalItens + 3.5 : 0
