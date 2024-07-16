@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState } from 'react'
+import { createContext, ReactNode, useEffect, useState } from 'react'
 import { Order, CoffeeCardType } from '../types'
 
 interface CartContextType {
@@ -15,7 +15,13 @@ interface CartContextProviderProps {
   children: ReactNode
 }
 export function CartContextProvider({ children }: CartContextProviderProps) {
-  const [cart, setCart] = useState<Order[]>([])
+  const storedStateAsJSON = localStorage.getItem(
+    '@coffee-delivery:cart-state-1.0.0',
+  )
+
+  const [cart, setCart] = useState<Order[]>(
+    storedStateAsJSON ? JSON.parse(storedStateAsJSON) : [],
+  )
 
   function addCart({ card, quantity }: Order) {
     const exists = cart.find((item) => item.card.id === card.id)
@@ -72,6 +78,14 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     setCart(filteredCart)
     console.log(cart)
   }
+
+  useEffect(() => {
+    if (cart) {
+      const stateJSON = JSON.stringify(cart)
+
+      localStorage.setItem('@coffee-delivery:cart-state-1.0.0', stateJSON)
+    }
+  }, [cart])
 
   return (
     <CartContext.Provider

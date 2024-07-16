@@ -6,7 +6,7 @@
 import { CoffeeCardType, Order } from '../types'
 
 export enum ActionTypes {
-  ADD_NEW_ORDER = 'ADD_NEW_ORDER',
+  ADD_ORDER = 'ADD_ORDER',
   REMOVE_ORDER = 'REMOVE_ORDER',
   UPDATE_ORDER = 'UPDATE_ORDER',
   ADD_QTD_ORDER = 'ADD_QTD_ORDER',
@@ -15,7 +15,7 @@ export enum ActionTypes {
 
 export type Actions =
   | {
-      type: ActionTypes.ADD_NEW_ORDER
+      type: ActionTypes.ADD_ORDER
       payload: {
         data: Order
       }
@@ -39,14 +39,14 @@ export type Actions =
       }
     }
 
-export function updateOrderAction(item: Order) {
-  return {
-    type: ActionTypes.UPDATE_ORDER,
-    payload: {
-      data: item,
-    },
-  } satisfies Actions
-}
+// export function updateOrderAction(item: Order) {
+//   return {
+//     type: ActionTypes.UPDATE_ORDER,
+//     payload: {
+//       data: item,
+//     },
+//   } satisfies Actions
+// }
 // export function addItemAction(item: Item) {
 //   return {
 //     type: ActionTypes.ADD_ITEM,
