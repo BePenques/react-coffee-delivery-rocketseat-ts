@@ -29,7 +29,7 @@ export type Actions =
   | {
       type: ActionTypes.REMOVE_ORDER
       payload: {
-        data: Order[]
+        data: CoffeeCardType
       }
     }
   | {

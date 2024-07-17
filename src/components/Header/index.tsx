@@ -21,7 +21,7 @@ export function Header() {
         </div>
         <NavLink to="/checkout">
           <CartButton color={'darkYellow'} bgcolor={'yellow'} />
-          {cart.length > 0 ? <span>{cart.length}</span> : null}
+          {cart?.length > 0 ? <span>{cart?.length}</span> : null}
         </NavLink>
       </aside>
     </HeaderContainer>

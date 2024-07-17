@@ -1,5 +1,7 @@
-import { createContext, ReactNode, useEffect, useState } from 'react'
+import { createContext, ReactNode, useEffect, useReducer } from 'react'
 import { Order, CoffeeCardType } from '../types'
+import { cartReducer } from '../reducers/reducer'
+import { ActionTypes } from './actions'
 
 interface CartContextType {
   cart: Order[]
@@ -15,68 +17,116 @@ interface CartContextProviderProps {
   children: ReactNode
 }
 export function CartContextProvider({ children }: CartContextProviderProps) {
-  const storedStateAsJSON = localStorage.getItem(
-    '@coffee-delivery:cart-state-1.0.0',
-  )
+  // const storedStateAsJSON = localStorage.getItem(
+  //   '@coffee-delivery:cart-state-1.0.0',
+  // )
 
-  const [cart, setCart] = useState<Order[]>(
-    storedStateAsJSON ? JSON.parse(storedStateAsJSON) : [],
-  )
+  // const [cart, setCart] = useState<Order[]>(
+  //   storedStateAsJSON ? JSON.parse(storedStateAsJSON) : [],
+  // )
 
-  function addCart({ card, quantity }: Order) {
-    const exists = cart.find((item) => item.card.id === card.id)
+  const [cartState, dispatch] = useReducer(
+    cartReducer,
+    {
+      cart: [],
+    },
+    (cartState) => {
+      const storedStateAsJSON = localStorage.getItem(
+        '@coffee-delivery:cart-state-1.0.0',
+      )
 
-    if (exists) {
-      const updateOrder = cart.map((item) => {
-        if (item.card.id === card.id) {
-          return { ...item, quantity: item.quantity + quantity }
-        }
-
-        return { ...item }
-      })
-      setCart(updateOrder)
-    } else {
-      const newOrder: Order = {
-        card,
-        quantity,
+      if (storedStateAsJSON) {
+        return JSON.parse(storedStateAsJSON)
       }
 
-      setCart((state) => [...state, newOrder])
-    }
+      return cartState
+    },
+  )
+
+  const { cart } = cartState
+
+  function addCart({ card, quantity }: Order) {
+    console.log(cart)
+    // const exists = cart.find((item) => item.card.id === card.id)
+
+    // if (exists) {
+    //   dispatch({
+    //     type: ActionTypes.UPDATE_ORDER,
+    //     payload: {
+    //       data: { card, quantity },
+    //     },
+    //   })
+    //   const updateOrder = cart.map((item) => {
+    //     if (item.card.id === card.id) {
+    //       return { ...item, quantity: item.quantity + quantity }
+    //     }
+    //     return { ...item }
+    //   })
+    //   setCart(updateOrder)
+    // } else {
+    dispatch({
+      type: ActionTypes.ADD_ORDER,
+      payload: {
+        data: { card, quantity },
+      },
+    })
+    //   const newOrder: Order = {
+    //     card,
+    //     quantity,
+    //   }
+    //   setCart((state) => [...state, newOrder])
+    // }
   }
 
   function addQuantityOfOrder(card: CoffeeCardType) {
-    const updateOrder = cart.map((item) => {
-      if (item.card.id === card.id) {
-        return {
-          ...item,
-          quantity: item.quantity >= 1 ? (item.quantity += 1) : item.quantity,
-        }
-      }
+    // const updateOrder = cart.map((item) => {
+    //   if (item.card.id === card.id) {
+    //     return {
+    //       ...item,
+    //       quantity: item.quantity >= 1 ? (item.quantity += 1) : item.quantity,
+    //     }
+    //   }
 
-      return { ...item }
+    //   return { ...item }
+    // })
+    dispatch({
+      type: ActionTypes.ADD_QTD_ORDER,
+      payload: {
+        data: card,
+      },
     })
-    setCart(updateOrder)
+    // setCart(updateOrder)
   }
 
   function reduceQuantityOfOrder(card: CoffeeCardType) {
-    const updateOrder = cart.map((item) => {
-      if (item.card.id === card.id) {
-        return {
-          ...item,
-          quantity: item.quantity >= 2 ? (item.quantity -= 1) : item.quantity,
-        }
-      }
+    // const updateOrder = cart.map((item) => {
+    //   if (item.card.id === card.id) {
+    //     return {
+    //       ...item,
+    //       quantity: item.quantity >= 2 ? (item.quantity -= 1) : item.quantity,
+    //     }
+    //   }
 
-      return { ...item }
+    //   return { ...item }
+    // })
+    dispatch({
+      type: ActionTypes.REDUCE_QTD_ORDER,
+      payload: {
+        data: card,
+      },
     })
-    setCart(updateOrder)
+    // setCart(updateOrder)
   }
 
   function removeOrder(card: CoffeeCardType) {
-    const filteredCart = cart.filter((item) => item.card.id !== card.id)
-    setCart(filteredCart)
-    console.log(cart)
+    // const filteredCart = cart.filter((item) => item.card.id !== card.id)
+    // setCart(filteredCart)
+    dispatch({
+      type: ActionTypes.REMOVE_ORDER,
+      payload: {
+        data: card,
+      },
+    })
   }
 
   useEffect(() => {

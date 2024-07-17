@@ -183,7 +183,7 @@ export function Checkout() {
       <ResumeSection>
         <h1>Cafés selecionados</h1>
         <PaymentBox>
-          {cart.map((order) => {
+          {cart?.map((order) => {
             return (
               <VerticalCard
                 key={order?.card?.id}

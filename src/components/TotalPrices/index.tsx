@@ -5,11 +5,11 @@ import { CartContext } from '../../contexts/CartProvider'
 export function TotalPrices() {
   const { cart } = useContext(CartContext)
 
-  const vlrTotalItens = cart.reduce((accumulator, currentItem) => {
+  const vlrTotalItens = cart?.reduce((accumulator, currentItem) => {
     return (accumulator += currentItem?.card?.price * currentItem?.quantity)
   }, 0)
 
-  const vlrTotal = cart.length > 0 ? vlrTotalItens + 3.5 : 0
+  const vlrTotal = cart?.length > 0 ? vlrTotalItens + 3.5 : 0
 
   return (
     <TotalPricesLayout>
@@ -20,7 +20,7 @@ export function TotalPrices() {
           {new Intl.NumberFormat('pt-br', {
             currency: 'BRL',
             style: 'currency',
-          }).format(vlrTotalItens)}
+          }).format(vlrTotalItens || 0)}
         </span>
       </PriceLine>
       <PriceLine>
