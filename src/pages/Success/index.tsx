@@ -6,8 +6,16 @@ import {
   SuccessInformation,
   CardInfo,
 } from './styles'
+import { useParams } from 'react-router-dom'
+import { CartContext } from '../../contexts/CartProvider'
+import { useContext } from 'react'
 
 export function Success() {
+  const { orders } = useContext(CartContext)
+  const { id } = useParams()
+  const orderInfo = orders.find((order) => order.id === Number(id))
+  console.log(orderInfo)
+
   return (
     <SuccessContainer>
       <div>

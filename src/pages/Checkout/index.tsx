@@ -23,11 +23,10 @@ import FormField from '../../components/FormField'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
-import { FormData } from '../../types'
+import { FormDataT } from '../../types'
 import FormFieldRadio from '../../components/FormFieldRadio'
 import { useContext } from 'react'
 import { CartContext } from '../../contexts/CartProvider'
-import { useNavigate } from 'react-router-dom'
 
 const newCheckoutFormValidationSchema = zod.object({
   cep: zod
@@ -45,14 +44,15 @@ const newCheckoutFormValidationSchema = zod.object({
 })
 
 export function Checkout() {
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
-  const { cart } = useContext(CartContext)
+  const { cart, checkout } = useContext(CartContext)
 
   // function onSubmit(data: FormData) {
-  // function onSubmit(data: FormData) {
-  function onSubmit() {
-    navigate(`/success`)
+  function onSubmit(data: FormDataT) {
+    // function onSubmit() {
+    // navigate(`/success`)
+    checkout(data)
   }
 
   const {
@@ -60,7 +60,7 @@ export function Checkout() {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm<FormData>({
+  } = useForm<FormDataT>({
     resolver: zodResolver(newCheckoutFormValidationSchema),
   })
 

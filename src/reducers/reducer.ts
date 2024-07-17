@@ -1,6 +1,6 @@
 import { produce } from 'immer'
 import { ActionTypes, Actions } from '../contexts/actions'
-import { CoffeeCardType } from '../types'
+import { CoffeeCardType, FormDataT } from '../types'
 // import { OrderInfo } from '../../pages/Cart'
 
 export interface Item {
@@ -8,14 +8,14 @@ export interface Item {
   quantity: number
 }
 
-// export interface Order {
-//   card: CoffeeCardType
-//   items: Item[]
-// }
+export interface FinishedOrder extends FormDataT {
+  id: number
+  items: Item[]
+}
 
 interface CartState {
   cart: Item[]
-  // orders: Order[]
+  orders: FinishedOrder[]
 }
 
 export function cartReducer(state: CartState, action: Actions) {
@@ -59,6 +59,19 @@ export function cartReducer(state: CartState, action: Actions) {
           (item) => item.card.id === action.payload.data.id,
         )
         draft.cart.splice(itemToRemoveId, 1)
+      })
+    case ActionTypes.CHECKOUT:
+      return produce(state, (draft) => {
+        const newOrder = {
+          id: new Date().getTime(),
+          items: state.cart,
+          ...action.payload.data,
+        }
+        draft.orders.push(newOrder)
+        draft.cart = []
+
+        // action.payload.navigate(`/order/${newOrder.id}/success`)
+        action.payload.navigate(`/success/${newOrder.id}`)
       })
 
     // case ActionTypes.DECREMENT_ITEM_QUANTITY:

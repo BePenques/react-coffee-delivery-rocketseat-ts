@@ -3,12 +3,13 @@
 // import { NavigateFunction } from 'react-router-dom'
 // import { OrderInfo } from '../../pages/Cart'
 // import { Item } from './reducer'
-import { CoffeeCardType, Order } from '../types'
+import { NavigateFunction } from 'react-router-dom'
+import { CoffeeCardType, FormDataT, Order } from '../types'
 
 export enum ActionTypes {
   ADD_ORDER = 'ADD_ORDER',
   REMOVE_ORDER = 'REMOVE_ORDER',
-  UPDATE_ORDER = 'UPDATE_ORDER',
+  CHECKOUT = 'CHECKOUT',
   ADD_QTD_ORDER = 'ADD_QTD_ORDER',
   REDUCE_QTD_ORDER = 'REDUCE_QTD_ORDER',
 }
@@ -33,9 +34,10 @@ export type Actions =
       }
     }
   | {
-      type: ActionTypes.UPDATE_ORDER
+      type: ActionTypes.CHECKOUT
       payload: {
-        data: Order
+        data: FormDataT
+        navigate: NavigateFunction
       }
     }
 

@@ -1,7 +1,8 @@
 import { createContext, ReactNode, useEffect, useReducer } from 'react'
-import { Order, CoffeeCardType } from '../types'
-import { cartReducer } from '../reducers/reducer'
+import { Order, CoffeeCardType, FormDataT } from '../types'
+import { cartReducer, FinishedOrder } from '../reducers/reducer'
 import { ActionTypes } from './actions'
+import { useNavigate } from 'react-router-dom'
 
 interface CartContextType {
   cart: Order[]
@@ -9,6 +10,8 @@ interface CartContextType {
   addQuantityOfOrder: (card: CoffeeCardType) => void
   reduceQuantityOfOrder: (card: CoffeeCardType) => void
   removeOrder: (card: CoffeeCardType) => void
+  checkout: (data: FormDataT) => void
+  orders: FinishedOrder[]
 }
 
 export const CartContext = createContext({} as CartContextType)
@@ -17,6 +20,7 @@ interface CartContextProviderProps {
   children: ReactNode
 }
 export function CartContextProvider({ children }: CartContextProviderProps) {
+  const navigate = useNavigate()
   // const storedStateAsJSON = localStorage.getItem(
   //   '@coffee-delivery:cart-state-1.0.0',
   // )
@@ -29,6 +33,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     cartReducer,
     {
       cart: [],
+      orders: [],
     },
     (cartState) => {
       const storedStateAsJSON = localStorage.getItem(
@@ -43,7 +48,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     },
   )
 
-  const { cart } = cartState
+  const { cart, orders } = cartState
 
   function addCart({ card, quantity }: Order) {
     console.log(cart)
@@ -129,6 +134,18 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     })
   }
 
+  function checkout(data: FormDataT) {
+    console.log(data)
+
+    dispatch({
+      type: ActionTypes.CHECKOUT,
+      payload: {
+        data,
+        navigate,
+      },
+    })
+  }
+
   useEffect(() => {
     if (cart) {
       const stateJSON = JSON.stringify(cart)
@@ -145,6 +162,8 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         reduceQuantityOfOrder,
         removeOrder,
         cart,
+        checkout,
+        orders,
       }}
     >
       {children}
