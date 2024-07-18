@@ -46,11 +46,7 @@ const newCheckoutFormValidationSchema = zod.object({
 })
 
 export function Checkout() {
-  const navigate = useNavigate()
-
   const { cart, checkout } = useContext(CartContext)
-
-  if (cart.length === 0) navigate('/')
 
   const [invalidCEP, setInvalidCEP] = useState(false)
 
