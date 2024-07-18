@@ -686,7 +686,7 @@ Error generating stack: `+o.message+`
       color: white;
     }
   }
-`,V_="/react-coffee-delivery-rocketseat-ts/assets/Logo-B2hX37pg.svg";function U_(){const{cart:e}=O.useContext(Vr);return x.jsxs(W_,{children:[x.jsx(Wp,{to:"/",title:"Home",children:x.jsx("img",{src:V_,alt:""})}),x.jsxs("aside",{children:[x.jsxs("div",{children:[x.jsx(Kd,{size:22,weight:"fill",color:"#8047F8"}),x.jsx("p",{children:"Campinas, SP"})]}),(e==null?void 0:e.length)>0?x.jsxs(Wp,{to:"/checkout",children:[x.jsx(Tc,{color:"darkYellow",bgcolor:"yellow"}),(e==null?void 0:e.length)>0?x.jsx("span",{children:e==null?void 0:e.length}):null]}):x.jsxs(x.Fragment,{children:[x.jsx(Tc,{color:"darkYellow",bgcolor:"yellow"}),(e==null?void 0:e.length)>0?x.jsx("span",{children:e==null?void 0:e.length}):null]})]})]})}const B_=G.div`
+`,V_="/react-coffee-delivery-rocketseat-ts/assets/Logo-B2hX37pg.svg";function U_(){const{cart:e}=O.useContext(Vr);return x.jsxs(W_,{children:[x.jsx(Wp,{to:"/",title:"Home",children:x.jsx("img",{src:V_,alt:""})}),x.jsxs("aside",{children:[x.jsxs("div",{children:[x.jsx(Kd,{size:22,weight:"fill",color:"#8047F8"}),x.jsx("p",{children:"Campinas, SP"})]}),(e==null?void 0:e.length)>0?x.jsxs(Wp,{to:"/react-coffee-delivery-rocketseat-ts/checkout",children:[x.jsx(Tc,{color:"darkYellow",bgcolor:"yellow"}),(e==null?void 0:e.length)>0?x.jsx("span",{children:e==null?void 0:e.length}):null]}):x.jsxs(x.Fragment,{children:[x.jsx(Tc,{color:"darkYellow",bgcolor:"yellow"}),(e==null?void 0:e.length)>0?x.jsx("span",{children:e==null?void 0:e.length}):null]})]})]})}const B_=G.div`
   max-width: 73.6rem;
   height: 100vh;
   margin: 0rem auto;
@@ -694,4 +694,4 @@ Error generating stack: `+o.message+`
 
   display: flex;
   flex-direction: column;
-`;function H_(){return x.jsxs(B_,{children:[x.jsx(U_,{}),x.jsx(Vx,{})]})}function Z_(){return x.jsx(Bx,{children:x.jsxs(no,{path:"/react-coffee-delivery-rocketseat-ts",element:x.jsx(H_,{}),children:[x.jsx(no,{path:"/react-coffee-delivery-rocketseat-ts",element:x.jsx(Q2,{})}),x.jsx(no,{path:"/checkout",element:x.jsx(F_,{})}),x.jsx(no,{path:"/success/:id",element:x.jsx(b_,{})})]})})}function Q_(){return x.jsx(Jx,{children:x.jsx(qk,{theme:Jk,children:x.jsxs(V2,{children:[x.jsx(Z_,{}),x.jsx(Xk,{})]})})})}xu.createRoot(document.getElementById("root")).render(x.jsx(c.StrictMode,{children:x.jsx(Q_,{})}));
+`;function H_(){return x.jsxs(B_,{children:[x.jsx(U_,{}),x.jsx(Vx,{})]})}function Z_(){return x.jsx(Bx,{children:x.jsxs(no,{path:"/react-coffee-delivery-rocketseat-ts",element:x.jsx(H_,{}),children:[x.jsx(no,{path:"/",element:x.jsx(Q2,{})}),x.jsx(no,{path:"/checkout",element:x.jsx(F_,{})}),x.jsx(no,{path:"/success/:id",element:x.jsx(b_,{})})]})})}function Q_(){return x.jsx(Jx,{children:x.jsx(qk,{theme:Jk,children:x.jsxs(V2,{children:[x.jsx(Z_,{}),x.jsx(Xk,{})]})})})}xu.createRoot(document.getElementById("root")).render(x.jsx(c.StrictMode,{children:x.jsx(Q_,{})}));
