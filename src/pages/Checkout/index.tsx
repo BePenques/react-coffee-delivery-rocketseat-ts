@@ -28,7 +28,6 @@ import FormFieldRadio from '../../components/FormFieldRadio'
 import { useContext, useState } from 'react'
 import { CartContext } from '../../contexts/CartProvider'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
 
 const newCheckoutFormValidationSchema = zod.object({
   cep: zod
