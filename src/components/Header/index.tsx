@@ -19,10 +19,17 @@ export function Header() {
           <MapPin size={22} weight="fill" color="#8047F8" />
           <p>Campinas, SP</p>
         </div>
-        <NavLink to="/checkout">
-          <CartButton color={'darkYellow'} bgcolor={'yellow'} />
-          {cart?.length > 0 ? <span>{cart?.length}</span> : null}
-        </NavLink>
+        {cart?.length > 0 ? (
+          <NavLink to="/checkout">
+            <CartButton color={'darkYellow'} bgcolor={'yellow'} />
+            {cart?.length > 0 ? <span>{cart?.length}</span> : null}
+          </NavLink>
+        ) : (
+          <>
+            <CartButton color={'darkYellow'} bgcolor={'yellow'} />
+            {cart?.length > 0 ? <span>{cart?.length}</span> : null}
+          </>
+        )}
       </aside>
     </HeaderContainer>
   )

@@ -13,8 +13,22 @@ import { useContext } from 'react'
 export function Success() {
   const { orders } = useContext(CartContext)
   const { id } = useParams()
-  const orderInfo = orders.find((order) => order.id === Number(id))
-  console.log(orderInfo)
+  const orderInfo = orders?.find((order) => order.id === Number(id))
+
+  if (!orderInfo?.id) {
+    return null
+  }
+  function methodArray(data: string) {
+    if (data === 'credit') {
+      return 'Cartão de Crédito'
+    }
+    if (data === 'debit') {
+      return 'Cartão de Débito'
+    }
+    if (data === 'money') {
+      return 'Dinheiro'
+    }
+  }
 
   return (
     <SuccessContainer>
@@ -30,9 +44,14 @@ export function Success() {
             </span>
             <div>
               <p>
-                Entrega em <b>Rua João Daniel Martinelli, 10</b>
+                Entrega em{' '}
+                <b>
+                  {orderInfo?.rua}, {orderInfo?.numero}
+                </b>
               </p>
-              <p>Farrapos - Porto Alegre, RS</p>
+              <p>
+                {orderInfo?.cidade}, {orderInfo?.uf}
+              </p>
             </div>
           </CardInfo>
           <CardInfo bgColor="yellowLight">
@@ -50,7 +69,7 @@ export function Success() {
             </span>
             <div>
               <p>Pagamento na entrega</p>
-              <b>Cartão de Crédito</b>
+              <b>{methodArray(orderInfo?.paymentMethod)}</b>
             </div>
           </CardInfo>
         </SuccessInformation>
