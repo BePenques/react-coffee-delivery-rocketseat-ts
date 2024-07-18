@@ -8,8 +8,11 @@ import { DefaultLayout } from './layouts/DefaultLayout'
 export function Router() {
   return (
     <Routes>
-      <Route path="/" element={<DefaultLayout />}>
-        <Route path="/" element={<Home />} />
+      <Route
+        path="/react-coffee-delivery-rocketseat-ts"
+        element={<DefaultLayout />}
+      >
+        <Route path="/react-coffee-delivery-rocketseat-ts" element={<Home />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/success/:id" element={<Success />} />
       </Route>
