@@ -26,7 +26,6 @@ export const BannerContainer = styled.section`
   height: 34rem;
   align-items: start;
   justify-content: space-between;
-  background-image: url(/src/assets/Background.svg);
   width: 100%;
 
   img {

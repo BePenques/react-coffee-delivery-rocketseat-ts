@@ -59,12 +59,14 @@ export const TagCoffee = styled.span`
   margin-top: 12px;
 `
 export const FooterCoffeeCard = styled.div`
+  display: flex;
   align-items: center;
+  justify-content: center;
   margin-top: 33px;
   gap: 23px;
 
   p {
-    font-size: 24px;
+    font-size: 22px;
     span {
       font-size: 14px;
       font-family: 'Roboto';

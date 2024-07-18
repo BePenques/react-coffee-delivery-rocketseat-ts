@@ -44,7 +44,7 @@ export type FormFieldRadioProps = {
 }
 
 export interface CoffeeCardType {
-  id: string
+  id: number
   name: string
   description: string
   imageName: string
