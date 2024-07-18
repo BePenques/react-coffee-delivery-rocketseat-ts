@@ -29,6 +29,7 @@ export type FormFieldProps = {
   register: UseFormRegister<FormDataT>
   error: FieldError | undefined
   valueAsNumber?: boolean
+  onBlur?: React.ChangeEventHandler<HTMLInputElement>
 }
 
 export type FormFieldRadioProps = {

@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useEffect, useReducer } from 'react'
+import { createContext, ReactNode, useReducer } from 'react'
 import { Order, CoffeeCardType, FormDataT } from '../types'
 import { cartReducer, FinishedOrder } from '../reducers/reducer'
 import { ActionTypes } from './actions'
@@ -35,97 +35,49 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
       cart: [],
       orders: [],
     },
-    (cartState) => {
-      const storedStateAsJSON = localStorage.getItem(
-        '@coffee-delivery:cart-state-1.0.0',
-      )
+    // (cartState) => {
+    //   const storedStateAsJSON = localStorage.getItem(
+    //     '@coffee-delivery:cart-state-1.0.0',
+    //   )
 
-      if (storedStateAsJSON) {
-        return JSON.parse(storedStateAsJSON)
-      }
+    //   if (storedStateAsJSON) {
+    //     return JSON.parse(storedStateAsJSON)
+    //   }
 
-      return cartState
-    },
+    //   return cartState
+    // },
   )
 
   const { cart, orders } = cartState
 
   function addCart({ card, quantity }: Order) {
-    console.log(cart)
-    // const exists = cart.find((item) => item.card.id === card.id)
-
-    // if (exists) {
-    //   dispatch({
-    //     type: ActionTypes.UPDATE_ORDER,
-    //     payload: {
-    //       data: { card, quantity },
-    //     },
-    //   })
-    //   const updateOrder = cart.map((item) => {
-    //     if (item.card.id === card.id) {
-    //       return { ...item, quantity: item.quantity + quantity }
-    //     }
-    //     return { ...item }
-    //   })
-    //   setCart(updateOrder)
-    // } else {
     dispatch({
       type: ActionTypes.ADD_ORDER,
       payload: {
         data: { card, quantity },
       },
     })
-    //   const newOrder: Order = {
-    //     card,
-    //     quantity,
-    //   }
-    //   setCart((state) => [...state, newOrder])
-    // }
   }
 
   function addQuantityOfOrder(card: CoffeeCardType) {
-    // const updateOrder = cart.map((item) => {
-    //   if (item.card.id === card.id) {
-    //     return {
-    //       ...item,
-    //       quantity: item.quantity >= 1 ? (item.quantity += 1) : item.quantity,
-    //     }
-    //   }
-
-    //   return { ...item }
-    // })
     dispatch({
       type: ActionTypes.ADD_QTD_ORDER,
       payload: {
         data: card,
       },
     })
-    // setCart(updateOrder)
   }
 
   function reduceQuantityOfOrder(card: CoffeeCardType) {
-    // const updateOrder = cart.map((item) => {
-    //   if (item.card.id === card.id) {
-    //     return {
-    //       ...item,
-    //       quantity: item.quantity >= 2 ? (item.quantity -= 1) : item.quantity,
-    //     }
-    //   }
-
-    //   return { ...item }
-    // })
     dispatch({
       type: ActionTypes.REDUCE_QTD_ORDER,
       payload: {
         data: card,
       },
     })
-    // setCart(updateOrder)
   }
 
   function removeOrder(card: CoffeeCardType) {
-    // const filteredCart = cart.filter((item) => item.card.id !== card.id)
-    // setCart(filteredCart)
     dispatch({
       type: ActionTypes.REMOVE_ORDER,
       payload: {
@@ -135,8 +87,6 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
   }
 
   function checkout(data: FormDataT) {
-    console.log(data)
-
     dispatch({
       type: ActionTypes.CHECKOUT,
       payload: {
@@ -146,13 +96,13 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     })
   }
 
-  useEffect(() => {
-    if (cart) {
-      const stateJSON = JSON.stringify(cart)
+  // useEffect(() => {
+  //   if (cart) {
+  //     const stateJSON = JSON.stringify(cart)
 
-      localStorage.setItem('@coffee-delivery:cart-state-1.0.0', stateJSON)
-    }
-  }, [cart])
+  //     localStorage.setItem('@coffee-delivery:cart-state-1.0.0', stateJSON)
+  //   }
+  // }, [cart])
 
   return (
     <CartContext.Provider

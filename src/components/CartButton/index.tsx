@@ -1,7 +1,6 @@
 import { ShoppingCart } from 'phosphor-react'
 import { CartBtn, propsCartBtn } from './style.ts'
 
-// export function CartButton({ color, bgcolor }: propsCartBtn) {
 export function CartButton({ color, bgcolor }: propsCartBtn) {
   const STATUS_COLORS = {
     white: 'white',
@@ -12,7 +11,6 @@ export function CartButton({ color, bgcolor }: propsCartBtn) {
 
   return (
     <CartBtn color={color} bgcolor={bgcolor}>
-      {/* <CartBtn> */}
       <ShoppingCart size={22} weight="fill" color={STATUS_COLORS[color]} />
     </CartBtn>
   )

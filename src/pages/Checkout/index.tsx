@@ -25,8 +25,10 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
 import { FormDataT } from '../../types'
 import FormFieldRadio from '../../components/FormFieldRadio'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { CartContext } from '../../contexts/CartProvider'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const newCheckoutFormValidationSchema = zod.object({
   cep: zod
@@ -44,14 +46,15 @@ const newCheckoutFormValidationSchema = zod.object({
 })
 
 export function Checkout() {
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
 
   const { cart, checkout } = useContext(CartContext)
 
-  // function onSubmit(data: FormData) {
+  if (cart.length === 0) navigate('/')
+
+  const [invalidCEP, setInvalidCEP] = useState(false)
+
   function onSubmit(data: FormDataT) {
-    // function onSubmit() {
-    // navigate(`/success`)
     checkout(data)
   }
 
@@ -59,12 +62,31 @@ export function Checkout() {
     register,
     handleSubmit,
     watch,
+    setValue,
     formState: { errors },
   } = useForm<FormDataT>({
     resolver: zodResolver(newCheckoutFormValidationSchema),
   })
 
   const selectedPaymentMethod = watch('paymentMethod')
+
+  async function buscaCEP(data: string) {
+    const cep = data.replace(/\D/g, '')
+
+    if (cep?.length === 8) {
+      await axios
+        .get(`https://viacep.com.br/ws/${cep}/json/`)
+        .then((response) => {
+          response?.data?.erro ? setInvalidCEP(true) : setInvalidCEP(false)
+          // eslint-disable-next-line no-unused-expressions, no-sequences
+          setValue('rua', response?.data?.logradouro),
+            setValue('uf', response?.data?.uf),
+            setValue('bairro', response?.data?.bairro),
+            setValue('cidade', response?.data?.localidade)
+        })
+        .catch(() => setInvalidCEP(true))
+    }
+  }
 
   return (
     <CheckoutMain>
@@ -83,9 +105,11 @@ export function Checkout() {
               type="text"
               placeholder="CEP"
               name="cep"
+              onBlur={(event) => buscaCEP(event.target.value)}
               register={register}
               error={errors.cep}
             />
+            {invalidCEP && <span>Informe um CEP válido</span>}
             <FormField
               type="text"
               placeholder="Rua"
@@ -193,11 +217,9 @@ export function Checkout() {
             )
           })}
           <TotalPrices></TotalPrices>
-          {/* <NavLink to="/success" title="Home"> */}
           <ButtonConfirmOrder type="submit" form="formCheckout">
             CONFIRMAR PEDIDO
           </ButtonConfirmOrder>
-          {/* </NavLink> */}
         </PaymentBox>
       </ResumeSection>
     </CheckoutMain>

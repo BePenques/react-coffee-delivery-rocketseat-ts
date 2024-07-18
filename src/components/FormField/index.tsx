@@ -8,12 +8,13 @@ const FormField: React.FC<FormFieldProps> = ({
   register,
   error,
   valueAsNumber,
+  onBlur,
 }) => (
   <Box>
     <FormFieldStyle
       type={type}
       placeholder={placeholder}
-      {...register(name, { valueAsNumber })}
+      {...register(name, { valueAsNumber, onBlur })}
     />
 
     {error && <ErrorMessage>{error.message}</ErrorMessage>}

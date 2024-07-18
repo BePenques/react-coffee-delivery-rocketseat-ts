@@ -106,6 +106,11 @@ export const FormContainer = styled.form`
   input:-ms-input-placeholder {
     color: ${(props) => props.theme['gray-300']};
   }
+  span {
+    font-size: 10px;
+    color: red;
+    font-family: 'Roboto';
+  }
 `
 export const PaymentMethodSectionStyle = styled.section`
   height: 12.93rem;

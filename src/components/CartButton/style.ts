@@ -22,4 +22,8 @@ export const CartBtn = styled.aside<propsCartBtn>`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+
+  &:hover {
+    opacity: 0.5;
+  }
 `
