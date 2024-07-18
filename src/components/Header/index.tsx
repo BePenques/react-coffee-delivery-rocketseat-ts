@@ -20,7 +20,7 @@ export function Header() {
           <p>Campinas, SP</p>
         </div>
         {cart?.length > 0 ? (
-          <NavLink to="/checkout">
+          <NavLink to="/react-coffee-delivery-rocketseat-ts/checkout">
             <CartButton color={'darkYellow'} bgcolor={'yellow'} />
             {cart?.length > 0 ? <span>{cart?.length}</span> : null}
           </NavLink>

@@ -12,7 +12,7 @@ export function Router() {
         path="/react-coffee-delivery-rocketseat-ts"
         element={<DefaultLayout />}
       >
-        <Route path="/react-coffee-delivery-rocketseat-ts" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/success/:id" element={<Success />} />
       </Route>
