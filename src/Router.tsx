@@ -12,9 +12,15 @@ export function Router() {
         path="/react-coffee-delivery-rocketseat-ts"
         element={<DefaultLayout />}
       >
-        <Route path="/" element={<Home />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="/success/:id" element={<Success />} />
+        <Route path="/react-coffee-delivery-rocketseat-ts" element={<Home />} />
+        <Route
+          path="/react-coffee-delivery-rocketseat-ts/checkout"
+          element={<Checkout />}
+        />
+        <Route
+          path="/react-coffee-delivery-rocketseat-ts/success/:id"
+          element={<Success />}
+        />
       </Route>
     </Routes>
   )
