@@ -16,11 +16,6 @@ export function Router() {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/success/:id" element={<Success />} />
       </Route>
-
-      {/* <Route path="/admin" element={<AdminLayout/>}>
-        <Route path="/products"/>
-        </Route> */}
-      {/* http://localhost:5173/admin/products */}
     </Routes>
   )
 }
