@@ -8,6 +8,16 @@ export const SuccessContainer = styled.main`
   img {
     margin-top: 11.25rem;
   }
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    img {
+      width: 100%;
+    }
+  }
 `
 export const SuccessTitle = styled.div`
   margin-top: 80px;
@@ -35,6 +45,10 @@ export const SuccessInformation = styled.section`
   gap: 2rem;
   /* border-top-right-radius: 36px;
   border-bottom-left-radius: 36px; */
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `
 const STATUS_COLORS = {
   yellow: 'yellow-700',

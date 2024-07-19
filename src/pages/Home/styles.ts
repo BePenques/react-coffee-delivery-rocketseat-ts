@@ -3,6 +3,10 @@ import styled from 'styled-components'
 export const HomeContainer = styled.main`
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 768px) {
+    gap: 12rem;
+  }
 `
 
 export const BoxTitlesTag = styled.div`
@@ -27,6 +31,15 @@ export const BannerContainer = styled.section`
   align-items: start;
   justify-content: space-between;
   width: 100%;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+
+    img {
+      visibility: hidden;
+    }
+  }
 
   img {
     max-width: 29.75rem;

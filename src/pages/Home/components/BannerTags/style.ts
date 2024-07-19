@@ -11,6 +11,12 @@ export const BannerTagContainer = styled.div`
     flex-direction: column;
     gap: 1.25rem;
   }
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 `
 
 interface Props {

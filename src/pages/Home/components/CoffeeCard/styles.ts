@@ -16,6 +16,10 @@ export const CoffeeCardStyle = styled.div`
   border-bottom-left-radius: 36px;
   border-bottom-right-radius: 6px;
 
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
   div {
     display: flex;
     flex-direction: row;
@@ -71,6 +75,11 @@ export const FooterCoffeeCard = styled.div`
       font-size: 14px;
       font-family: 'Roboto';
       font-weight: normal;
+    }
+  }
+  @media (max-width: 768px) {
+    p {
+      font-size: 20px;
     }
   }
 `
