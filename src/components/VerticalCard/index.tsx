@@ -21,7 +21,10 @@ export function VerticalCard({ card, quantity }: Order) {
 
   return (
     <VerticalCardStyle>
-      <img src={`/src/assets/coffees/${card?.imageName}.svg`} alt="" />
+      <img
+        src={`/react-coffee-delivery-rocketseat-ts/images/coffees/${card?.imageName}.svg`}
+        alt=""
+      />
       <div>
         <p>{card?.name}</p>
         <span>
