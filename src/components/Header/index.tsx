@@ -11,7 +11,7 @@ export function Header() {
 
   return (
     <HeaderContainer>
-      <NavLink to="/" title="Home">
+      <NavLink to="/react-coffee-delivery-rocketseat-ts" title="Home">
         <img src={Logo} alt="" />
       </NavLink>
       <aside>

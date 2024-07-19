@@ -31,7 +31,10 @@ export function CoffeeCard({ card }: CardProps) {
 
   return (
     <CoffeeCardStyle>
-      <img src={`/src/assets/coffees/${card.imageName}.svg`} alt="" />
+      <img
+        src={`/react-coffee-delivery-rocketseat-ts/src/assets/coffees/${card.imageName}.svg`}
+        alt=""
+      />
       <TagBox>
         <TagCoffee>{card.tags[0]}</TagCoffee>
         {card.tags[1] ? <TagCoffee>{card.tags[1]}</TagCoffee> : ''}

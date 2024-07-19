@@ -70,7 +70,9 @@ export function cartReducer(state: CartState, action: Actions) {
         draft.orders.push(newOrder)
         draft.cart = []
 
-        action.payload.navigate(`/success/${newOrder.id}`)
+        action.payload.navigate(
+          `/react-coffee-delivery-rocketseat-ts/success/${newOrder.id}`,
+        )
       })
 
     default:
