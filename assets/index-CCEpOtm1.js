@@ -92,6 +92,10 @@ Error generating stack: `+o.message+`
  */function wa(){return wa=Object.assign?Object.assign.bind():function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e},wa.apply(this,arguments)}function k1(e,t){if(e==null)return{};var n={},r=Object.keys(e),i,o;for(o=0;o<r.length;o++)i=r[o],!(t.indexOf(i)>=0)&&(n[i]=e[i]);return n}function Hx(e){return!!(e.metaKey||e.altKey||e.ctrlKey||e.shiftKey)}function Zx(e,t){return e.button===0&&(!t||t==="_self")&&!Hx(e)}const Qx=["onClick","relative","reloadDocument","replace","state","target","to","preventScrollReset","unstable_viewTransition"],qx=["aria-current","caseSensitive","className","end","style","to","unstable_viewTransition","children"],Kx="6";try{window.__reactRouterVersion=Kx}catch{}const Gx=O.createContext({isTransitioning:!1}),Yx="startTransition",bp=$y[Yx];function Jx(e){let{basename:t,children:n,future:r,window:i}=e,o=O.useRef();o.current==null&&(o.current=ex({window:i,v5Compat:!0}));let s=o.current,[a,l]=O.useState({action:s.action,location:s.location}),{v7_startTransition:u}=r||{},d=O.useCallback(f=>{u&&bp?bp(()=>l(f)):l(f)},[l,u]);return O.useLayoutEffect(()=>s.listen(d),[s,d]),O.createElement(Ux,{basename:t,children:n,location:a.location,navigationType:a.action,navigator:s,future:r})}const Xx=typeof window<"u"&&typeof window.document<"u"&&typeof window.document.createElement<"u",e2=/^(?:[a-z][a-z0-9+.-]*:|\/\/)/i,t2=O.forwardRef(function(t,n){let{onClick:r,relative:i,reloadDocument:o,replace:s,state:a,target:l,to:u,preventScrollReset:d,unstable_viewTransition:f}=t,y=k1(t,Qx),{basename:k}=O.useContext(er),g,w=!1;if(typeof u=="string"&&e2.test(u)&&(g=u,Xx))try{let h=new URL(window.location.href),_=u.startsWith("//")?new URL(h.protocol+u):new URL(u),j=Ci(_.pathname,k);_.origin===h.origin&&j!=null?u=j+_.search+_.hash:w=!0}catch{}let C=Lx(u,{relative:i}),m=r2(u,{replace:s,state:a,target:l,preventScrollReset:d,relative:i,unstable_viewTransition:f});function p(h){r&&r(h),h.defaultPrevented||m(h)}return O.createElement("a",wa({},y,{href:g||C,onClick:w||o?r:p,ref:n,target:l}))}),Wp=O.forwardRef(function(t,n){let{"aria-current":r="page",caseSensitive:i=!1,className:o="",end:s=!1,style:a,to:l,unstable_viewTransition:u,children:d}=t,f=k1(t,qx),y=ml(l,{relative:f.relative}),k=Xo(),g=O.useContext(p1),{navigator:w,basename:C}=O.useContext(er),m=g!=null&&i2(y)&&u===!0,p=w.encodeLocation?w.encodeLocation(y).pathname:y.pathname,h=k.pathname,_=g&&g.navigation&&g.navigation.location?g.navigation.location.pathname:null;i||(h=h.toLowerCase(),_=_?_.toLowerCase():null,p=p.toLowerCase()),_&&C&&(_=Ci(_,C)||_);const j=p!=="/"&&p.endsWith("/")?p.length-1:p.length;let P=h===p||!s&&h.startsWith(p)&&h.charAt(j)==="/",R=_!=null&&(_===p||!s&&_.startsWith(p)&&_.charAt(p.length)==="/"),D={isActive:P,isPending:R,isTransitioning:m},re=P?r:void 0,H;typeof o=="function"?H=o(D):H=[o,P?"active":null,R?"pending":null,m?"transitioning":null].filter(Boolean).join(" ");let Ce=typeof a=="function"?a(D):a;return O.createElement(t2,wa({},f,{"aria-current":re,className:H,ref:n,style:Ce,to:l,unstable_viewTransition:u}),typeof d=="function"?d(D):d)});var Sc;(function(e){e.UseScrollRestoration="useScrollRestoration",e.UseSubmit="useSubmit",e.UseSubmitFetcher="useSubmitFetcher",e.UseFetcher="useFetcher",e.useViewTransitionState="useViewTransitionState"})(Sc||(Sc={}));var Vp;(function(e){e.UseFetcher="useFetcher",e.UseFetchers="useFetchers",e.UseScrollRestoration="useScrollRestoration"})(Vp||(Vp={}));function n2(e){let t=O.useContext(pl);return t||Ee(!1),t}function r2(e,t){let{target:n,replace:r,state:i,preventScrollReset:o,relative:s,unstable_viewTransition:a}=t===void 0?{}:t,l=y1(),u=Xo(),d=ml(e,{relative:s});return O.useCallback(f=>{if(Zx(f,n)){f.preventDefault();let y=r!==void 0?r:va(u)===va(d);l(e,{replace:y,state:i,preventScrollReset:o,relative:s,unstable_viewTransition:a})}},[u,l,d,r,i,n,e,o,s,a])}function i2(e,t){t===void 0&&(t={});let n=O.useContext(Gx);n==null&&Ee(!1);let{basename:r}=n2(Sc.useViewTransitionState),i=ml(e,{relative:t.relative});if(!n.isTransitioning)return!1;let o=Ci(n.currentLocation.pathname,r)||n.currentLocation.pathname,s=Ci(n.nextLocation.pathname,r)||n.nextLocation.pathname;return ka(i.pathname,s)!=null||ka(i.pathname,o)!=null}const o2=G.main`
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 768px) {
+    gap: 12rem;
+  }
 `,s2=G.div`
   max-width: 36.75rem;
   margin-top: 5.87rem;
@@ -110,6 +114,15 @@ Error generating stack: `+o.message+`
   align-items: start;
   justify-content: space-between;
   width: 100%;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+
+    img {
+      visibility: hidden;
+    }
+  }
 
   img {
     max-width: 29.75rem;
@@ -145,6 +158,12 @@ Error generating stack: `+o.message+`
     flex-direction: column;
     gap: 1.25rem;
   }
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 `,_s=G.div`
   display: flex;
   align-items: center;
@@ -176,6 +195,10 @@ Error generating stack: `+o.message+`
 
   border-bottom-left-radius: 36px;
   border-bottom-right-radius: 6px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 
   div {
     display: flex;
@@ -228,6 +251,11 @@ Error generating stack: `+o.message+`
       font-size: 14px;
       font-family: 'Roboto';
       font-weight: normal;
+    }
+  }
+  @media (max-width: 768px) {
+    p {
+      font-size: 20px;
     }
   }
 `;G.span`
@@ -573,6 +601,16 @@ Error generating stack: `+o.message+`
   img {
     margin-top: 11.25rem;
   }
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    img {
+      width: 100%;
+    }
+  }
 `,I_=G.div`
   margin-top: 80px;
   h1 {
@@ -598,6 +636,10 @@ Error generating stack: `+o.message+`
   gap: 2rem;
   /* border-top-right-radius: 36px;
   border-bottom-left-radius: 36px; */
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `,z_={yellow:"yellow-700",purple:"purple-400",yellowLight:"yellow-400"},ku=G.div`
   display: flex;
   flex-direction: row;
