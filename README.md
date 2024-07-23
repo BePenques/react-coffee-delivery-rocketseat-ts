@@ -9,4 +9,6 @@ Aplicação de delivery de cafés, com menu e checkout, contendo as funcionalida
 - Exibir o total de itens no carrinho no Header
 - Exibir o valor total da soma de itens no carrinho multiplicados pelo valor
 
-Layout Figma: https://www.figma.com/file/5yT9ZzZmRQRS4yivGGB3pl/Coffee-Delivery/duplicate
+<p> Layout Figma: https://www.figma.com/file/5yT9ZzZmRQRS4yivGGB3pl/Coffee-Delivery/duplicate </p>
+<p> Linkdin: https://www.linkedin.com/posts/betiza-barreira_github-bepenquesreact-coffee-delivery-rocketseat-ts-activity-7220135870840913920-sgQN?utm_source=share&utm_medium=member_desktop</p>
+<p> Preview: https://bepenques.github.io/react-coffee-delivery-rocketseat-ts/</p>
